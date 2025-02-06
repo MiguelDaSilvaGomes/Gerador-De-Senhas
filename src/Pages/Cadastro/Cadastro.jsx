@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native';
 
-export default function SignIn() {
+export function Cadastro() {
   const Navigation = useNavigation();
   useEffect(() => {
     // Faz a requisição ao backend
@@ -27,10 +27,15 @@ fetch('http://192.168.56.1/coisa.php')
  return (
     <View style={styles.container}>
         <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
-          <Text style={styles.message}>Bem-Vindo(a)</Text>
-          <Text style={styles.message2}>Login</Text>
+          <Text style={styles.message}>Cadastre-se</Text>
         </Animatable.View>
         <Animatable.View animation="fadeInUp" style={styles.containerForm}>
+            <Text style={styles.title}>Nome</Text>
+            <TextInput
+            placeholder='Digite seu Nome'
+            style={styles.input}
+            >
+            </TextInput>
             <Text style={styles.title}>Email</Text>
             <TextInput
             placeholder='Digite seu Email'
@@ -45,13 +50,9 @@ fetch('http://192.168.56.1/coisa.php')
             <View style={styles.ViewButton}>
 
             <TouchableOpacity style={styles.button} onPress={()=>Navigation.navigate('HomeTabs')}>
-                <Text style={styles.buttonText}>Acessar</Text>
+                <Text style={styles.buttonText}>Cadastrar</Text>
             </TouchableOpacity>
             </View>
-
-            <TouchableOpacity style={styles.buttonRegister} onPress={()=>Navigation.navigate("Cadastro")}>
-                <Text style={styles.RegisterText  }>Não possui uma conta? Cadastre-se</Text>
-            </TouchableOpacity>
         </Animatable.View>
 
    </View>
@@ -72,11 +73,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     color: 'white'
-  },
-  message2:{
-    fontSize: 25,
-    fontWeight: 'bold',
-    color: 'white',
   },
   containerForm:{
     backgroundColor: 'white',

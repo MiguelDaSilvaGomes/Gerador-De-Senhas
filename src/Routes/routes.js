@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Welcome from '../Pages/Welcome';
 import Login from '../Pages/Login/Login'; 
 import { RoutesTab } from './RoutesTab'; // Importa o Tab Navigator
+import { Cadastro } from '../Pages/Cadastro/Cadastro'
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,11 @@ export default function Routes() {
             <Stack.Screen
                 name="HomeTabs" // Novo nome para o Tab Navigator
                 component={RoutesTab}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name='Cadastro'
+                component={Cadastro}
                 options={{ headerShown: false }}
             />
         </Stack.Navigator>
